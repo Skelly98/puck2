@@ -1,8 +1,0 @@
-<puck-config>
-	<decouple>decouple.wld</decouple>
-	<log>puck-log.txt</log>
-	<workspace>D:\Informatique\MASTER UPMC STL\PSTL\puck2</workspace>
-	<out>out</out>
-	<classpath rec=".jar">lib</classpath>
-	<src rec=".java">src</src>
-</puck-config>
