@@ -44,10 +44,19 @@ public class Puck2Main {
 
     private static Puck2Runner run(String projectPath) {
         Puck2Runner runner = initRunner(projectPath);
-        System.out.println(projectPath);
-       
+   
         Scanner input = new Scanner(System.in);
 
+        System.out.println("Please input a command among the following :\n" +
+        					"display : afficher le graphe de dépendances sur la sortie standard\n"+
+        					"prettyPrint : afficher le code source du projet\n"+
+        					"saveGraph <fichier> : sauvegarder le graphe de dépendances au format XML dans le\n" + 
+        					"fichier spécifié\n"+
+        					"rename <id> <nouveauNom> : renommer l’entité d’identifiant id\n" +
+        					"rename <nom> <nouveauNom> : renommer l’entité de nom complet nom\n" +
+        					"execPlan <fichier> : charger et exécuter le plan de refactoring décrit dans le fichier\n" + 
+        					"spécifié\n" + 
+        					"saveCode <dossier> : écrire le code source modifié (après un refactoring) dans le dossier spécifique\n");
         while (input.hasNext()) {
             String command = input.nextLine();
             if (command.equals("display")) {

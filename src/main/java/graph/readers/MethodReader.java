@@ -38,10 +38,10 @@ public class MethodReader extends BodyDeclReader {
         if(param_list.size()> 0) {
         	for (ParameterDeclaration p : param_list) {
         		if( param_list.indexOf(p) == param_list.size() -1) {
-        			x += p.toString();
+        			x += p.type();
         		}
         		else {
-        			 x += p.toString()+", ";
+        			 x += p.type()+", ";
         		}
         	}
         }
