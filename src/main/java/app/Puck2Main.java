@@ -1,8 +1,10 @@
 package app;
 
-import com.sun.javafx.application.LauncherImpl;
+
 import graph.CodeGenerator;
 import graph.Graph;
+import javafx.application.Application;
+
 import org.extendj.ast.CompilationUnit;
 import org.xml.sax.SAXException;
 import refactoring.RefactoringBase;
@@ -26,19 +28,24 @@ public class Puck2Main {
     static Pattern saveCode = Pattern.compile("saveCode (.+)");
 
     public static void main(String args[]) throws Exception {
+    	System.out.println("Nombre d'arguments : " + args.length);
         switch (args.length) {
             case 0: launchGui(); break;
-            case 1: run(args[0]); break;
+            case 1: run(args[0]);break;
             case 2: {
                 run(args[0]).outputToFile(args[1]);
                 break;
             }
-            default: System.out.println("Usage: java -jar puck2 projectPath");
+            default: System.out.println("Usage: java -jar puck2.jar projectPath (outputDirectory)?"+
+            							"\n projectPath : chemin du dossier du projet"+
+            							"\n outDirectory : chemin du dossier de destination");
         }
     }
 
     private static Puck2Runner run(String projectPath) {
         Puck2Runner runner = initRunner(projectPath);
+        System.out.println(projectPath);
+       
         Scanner input = new Scanner(System.in);
 
         while (input.hasNext()) {
@@ -61,7 +68,6 @@ public class Puck2Main {
                 System.err.println("Invalid command");
             }
         }
-
         return runner;
     }
 
@@ -171,6 +177,6 @@ public class Puck2Main {
     }
 
     private static void launchGui() {
-        LauncherImpl.launchApplication(ConfigurationUI.class, null);
+       Application.launch(ConfigurationUI.class, "");
     }
 }

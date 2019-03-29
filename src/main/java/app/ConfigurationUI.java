@@ -32,16 +32,13 @@ public class ConfigurationUI extends Application {
    
     @Override
     public void start(Stage primaryStage) {
-        initUi(primaryStage);
-        primaryStage.show();
+        initUi(primaryStage); //initialise l'interface graphique
+        primaryStage.show(); //make window visible
     }
 
     private void initUi(Stage primaryStage) {
             
         initViews(primaryStage);
-        
-     
-       
         GridPane form = createForm();        
         StackPane p = new StackPane(); 
         form.prefWidthProperty().bind(p.prefWidthProperty());
@@ -52,8 +49,10 @@ public class ConfigurationUI extends Application {
         primaryStage.setScene(new Scene(p,  550, HEIGHT));
     }
 
+    /*
+     * initialise champs, boutons
+     */
     private void initViews(Stage primaryStage) {
-      //  initRunButton();
         initOpenFileChooserButton(primaryStage);
         initOutputDirChooser(primaryStage);
         initProgramDirField();
@@ -99,7 +98,7 @@ public class ConfigurationUI extends Application {
         runButton.setMaxWidth(Double.MAX_VALUE);
         runButton.setOnMouseClicked((e) -> {
             try {
-                run();
+                run(); //lance la génération xml
                 displaySuccess();
             } catch (Exception err) {
                 displayError(err.toString());
@@ -137,7 +136,7 @@ public class ConfigurationUI extends Application {
             initialPath = getUserDirectory();
         }
 
-        DirectoryChooser chooser = new DirectoryChooser();
+        DirectoryChooser chooser = new DirectoryChooser(); //ne peut choisir que les dossiers
         chooser.setInitialDirectory(new File(initialPath));
 
         File f = chooser.showDialog(stage);
@@ -166,10 +165,10 @@ public class ConfigurationUI extends Application {
     }
 
     private void run() throws Exception {
-        checkInputValidity();
+        checkInputValidity(); //vérifie que tous les champs ne sont pas vides
 
         Puck2Runner runner = new Puck2Runner(programDirField.getText());
-       
+       // System.out.println(programDirField.getText());
         runner.run();
         runner.XMLValidation();
         runner.outputToFile(getOutputFilePath());

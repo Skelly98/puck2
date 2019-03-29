@@ -26,8 +26,16 @@ public class MethodReader extends BodyDeclReader {
 
     @Override
     public Graph read() {
-        String fullName = getHostClassName() + "." + methodDecl.fullSignature();
-
+        String f = getHostClassName() + "." + methodDecl.name();
+        String fullName = f.replace("java.lang.", "");      
+        List <ParameterDeclaration> param_list = methodDecl.getParameterList();
+        String x = "";
+        for (ParameterDeclaration p : param_list) {
+        	if(p != null) x += p.toString()+", ";
+        }
+        
+        fullName += "("+x+")";
+        
         methodNode = addNode(fullName, Node.Type.Method, methodDecl);
 
         addHostClassDependency();

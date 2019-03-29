@@ -8,7 +8,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Graph {
-    private Map<Integer, Node> nodes = new HashMap<>();
+    private Map<Integer, Node> nodes = new HashMap<>(); //id - Node
+    
+    /*
+     * Associe id - edge
+     */
     private Map<Integer, Set<Edge>> fromIndex = new HashMap<>();
     private Map<Integer, Set<Edge>> toIndex = new HashMap<>();
     private Map<String, Integer> nameIndex = new HashMap<>();

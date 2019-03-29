@@ -2,6 +2,8 @@ package graph;
 
 import java.util.HashMap;
 
+
+//permet d'avoir des ids uniques pour chaque entités du graphe
 public class UniqueIdGenerator {
     private Integer nextId = 0;
     private HashMap<String, Integer> namesCache = new HashMap<>();

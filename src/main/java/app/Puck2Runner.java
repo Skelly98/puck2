@@ -27,8 +27,8 @@ import javax.xml.validation.Validator;
 
 public class Puck2Runner {
     String projectPath;
-    Graph graph;
-    Program program;
+    Graph graph; //
+    Program program; //extendJ
 
     public Puck2Runner(String path) {
         projectPath = path;
@@ -48,6 +48,7 @@ public class Puck2Runner {
         return projectPath;
     }
 
+    
     public void run() throws IOException {
         loadProgram(projectPath);
         ProgramReader reader = new ProgramReader(program);
@@ -61,6 +62,8 @@ public class Puck2Runner {
     }
 
     public void displayGraph() {
+    	
+    	System.out.println("JE DISPLAY UN GRAPH");
         for (Node node: graph.getNodes().values()) {
             System.out.println(node);
         }
@@ -107,14 +110,16 @@ public class Puck2Runner {
         }
     }
 
+    
+    //parse et ajoute tous les fichiers à la liste de compilation 
     private void loadProgram(String path) throws IOException {
-        File f = new File(path);
-        if (f.isDirectory()) {
+        File f = new File(path); 
+        if (f.isDirectory()) { //si f est un répertoire
             for (File innerFile: f.listFiles()) {
-                loadProgram(innerFile.getAbsolutePath());
+                loadProgram(innerFile.getAbsolutePath()); //récursivement ? on charge chaque fichier du projet
             }
-        } else if (getFileExtension(path).equals("java")) {
-            program.addSourceFile(path);
+        } else if (getFileExtension(path).equals("java")) { //si c'est un fichier java
+            program.addSourceFile(path); //parse le fichier et ajoute to compilation unit à la liste de compilation unit
         }
     }
 

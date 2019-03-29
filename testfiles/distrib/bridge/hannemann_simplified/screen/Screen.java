@@ -35,6 +35,10 @@ class InfoStar extends Screen {
   void draw() {
     printStar("Some info");
   }
+  
+  void draw(int num, int truc , int machin, boolean isWorking, float x, String s) {
+	 System.out.println("draw multiple param");
+  }
   void printStar(String s) {
     System.out.println("*** " + s + " ***");
   }
