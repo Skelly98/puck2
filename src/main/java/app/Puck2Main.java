@@ -28,7 +28,7 @@ public class Puck2Main {
     static Pattern saveCode = Pattern.compile("saveCode (.+)");
 
     public static void main(String args[]) throws Exception {
-    	System.out.println("Nombre d'arguments : " + args.length);
+//    	System.out.println("Nombre d'arguments : " + args.length);
         switch (args.length) {
             case 0: launchGui(); break;
             case 1: run(args[0]);break;

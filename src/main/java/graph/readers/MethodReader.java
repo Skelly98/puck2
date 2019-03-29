@@ -1,5 +1,6 @@
 package graph.readers;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
@@ -28,11 +29,23 @@ public class MethodReader extends BodyDeclReader {
     public Graph read() {
         String f = getHostClassName() + "." + methodDecl.name();
         String fullName = f.replace("java.lang.", "");      
-        List <ParameterDeclaration> param_list = methodDecl.getParameterList();
+        ArrayList <ParameterDeclaration> param_list = new ArrayList<ParameterDeclaration>();
         String x = "";
-        for (ParameterDeclaration p : param_list) {
-        	if(p != null) x += p.toString()+", ";
+        for (ParameterDeclaration p : methodDecl.getParameterList()) {
+        	param_list.add(p);
         }
+        
+        if(param_list.size()> 0) {
+        	for (ParameterDeclaration p : param_list) {
+        		if( param_list.indexOf(p) == param_list.size() -1) {
+        			x += p.toString();
+        		}
+        		else {
+        			 x += p.toString()+", ";
+        		}
+        	}
+        }
+        
         
         fullName += "("+x+")";
         
