@@ -33,7 +33,7 @@ public class Puck2Main {
             case 0: launchGui(); break;
             case 1: run(args[0]);break;
             case 2: {
-                run(args[0]).outputToFile(args[1]);
+                run2(args[0]).outputToFile(args[1]);
                 break;
             }
             default: System.out.println("Usage: java -jar puck2.jar projectPath (outputDirectory)?"+
@@ -47,16 +47,44 @@ public class Puck2Main {
    
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Please input a command among the following :\n" +
-        					"display : afficher le graphe de dépendances sur la sortie standard\n"+
-        					"prettyPrint : afficher le code source du projet\n"+
-        					"saveGraph <fichier> : sauvegarder le graphe de dépendances au format XML dans le\n" + 
-        					"fichier spécifié\n"+
-        					"rename <id> <nouveauNom> : renommer l’entité d’identifiant id\n" +
-        					"rename <nom> <nouveauNom> : renommer l’entité de nom complet nom\n" +
-        					"execPlan <fichier> : charger et exécuter le plan de refactoring décrit dans le fichier\n" + 
-        					"spécifié\n" + 
-        					"saveCode <dossier> : écrire le code source modifié (après un refactoring) dans le dossier spécifique\n");
+//        System.out.println("\n Please input a command among the following :\n" +
+//        					"display : afficher le graphe de dépendances sur la sortie standard\n"+
+//        					"prettyPrint : afficher le code source du projet\n"+
+//        					"saveGraph <fichier> : sauvegarder le graphe de dépendances au format XML dans le\n" + 
+//        					"fichier spécifié\n"+
+//        					"rename <id> <nouveauNom> : renommer l'entité d’identifiant id\n" +
+//        					"rename <nom> <nouveauNom> : renommer l'entité de nom complet nom\n" +
+//        					"execPlan <fichier> : charger et exécuter le plan de refactoring décrit dans le fichier\n" + 
+//        					"spécifié\n" + 
+//        					"saveCode <dossier> : écrire le code source modifié (après un refactoring) dans le dossier spécifique\n");
+        while (input.hasNext()) {
+            String command = input.nextLine();
+            if (command.equals("display")) {
+                runner.displayGraph();
+            } else if (command.equals("prettyPrint")) {
+                execPrettyPrint(runner);
+            } else if (command.startsWith("saveGraph")) {
+                execSaveGraph(runner, saveGraph.matcher(command));
+            } else if (command.startsWith("rename")) {
+                try {
+                    execRenameId(runner, rename.matcher(command));
+                } catch (RefactoringError e) { System.err.println(e.getMessage()); }
+            } else if (command.startsWith("execPlan")) {
+                execPlan(runner, execPlan.matcher(command));
+            } else if (command.startsWith("saveCode")) {
+                execSaveCode(runner, saveCode.matcher(command));
+            } else {
+//                System.err.println("Invalid command");
+            }
+        }
+        return runner;
+    }
+    
+    private static Puck2Runner run2(String projectPath) {
+        Puck2Runner runner = initRunner(projectPath);
+   
+        Scanner input = new Scanner(System.in);
+        
         while (input.hasNext()) {
             String command = input.nextLine();
             if (command.equals("display")) {

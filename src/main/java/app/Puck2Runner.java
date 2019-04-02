@@ -53,6 +53,7 @@ public class Puck2Runner {
         loadProgram(projectPath);
         ProgramReader reader = new ProgramReader(program);
         graph = reader.read();
+     //   displayGraph();
     }
 
     public void outputToFile(String outputFile) throws Exception {
@@ -61,9 +62,10 @@ public class Puck2Runner {
         exporter.writeTo(outputFile);
     }
 
+    
+    
     public void displayGraph() {
     	
-    	System.out.println("JE DISPLAY UN GRAPH");
         for (Node node: graph.getNodes().values()) {
             System.out.println(node);
         }

@@ -127,6 +127,7 @@ public class ReadersTest {
         return result;
     }
 
+    //affiche sur la sortie standard 
     private String getProgramOutput(Program p) {
         ProgramReader reader = new ProgramReader(p);
         Graph graph = reader.read();
@@ -134,6 +135,7 @@ public class ReadersTest {
         StringBuilder result = new StringBuilder();
         result.append("<DG>\n");
 
+        System.out.println(graph.getNodes().size());
         graph.getNodes().values().forEach((n) -> result.append(n.toString()));
         graph.getEdges().forEach((e) -> result.append(e.getStringRepr(graph)));
 

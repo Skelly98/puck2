@@ -39,8 +39,8 @@ public class Node {
     }
 
     public String toString() {
-        String formatStr = "<Node name=\"%s\" type=\"%s\"/>";
-        return String.format(formatStr, fullName, type.toString().toLowerCase());
+        String formatStr = "<Node name=\"%s\" id=\"%d\" type=\"%s\"/>";
+        return String.format(formatStr, fullName,id, type.toString().toLowerCase());
     }
 
     @Override

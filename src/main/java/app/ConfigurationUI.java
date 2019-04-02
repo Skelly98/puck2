@@ -1,5 +1,6 @@
 package app;
 
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,6 +21,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+//C'est juste pour afficher la GUI 
 
 public class ConfigurationUI extends Application {
     private final int HEIGHT = 175;

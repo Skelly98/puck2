@@ -64,7 +64,6 @@ public class XMLExporter {
         Node tnode = nodes.get(edge.getTarget());
 
         if (tnode != null) {
-            System.out.println(edge);
             Integer dest = tnode.getId();
             return String.format(formatString, type, src, dest, id, edge.getViolation());
         }

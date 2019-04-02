@@ -25,9 +25,11 @@ public class Edge {
 		this.violation = violation;
 	}
 
+	
+	//affiche edge
 	public String toString() {
-		return String.format("<Edge from=\"%d\" to=\"%d\" type=\"%s\"/>",
-				sourceId, targetId, type.toString().toLowerCase());
+		return String.format("<Edge src=\"%d\" dest=\"%d\" type=\"%s\" violation=\"%d\"/>",
+				sourceId, targetId, type.toString().toLowerCase(),violation);
 	}
 
 	public String getStringRepr(Graph graph) {
@@ -36,8 +38,8 @@ public class Edge {
 	    if (source == null || target == null) {
 	        return null;
         }
-        return String.format("<Edge from=\"%s\" to=\"%s\" type=\"%s\"/>",
-                source.getFullName(), target.getFullName(), getType().toString().toLowerCase());
+        return String.format("<Edge src=\"%s\" dest=\"%s\" type=\"%s\" violation=\"%d\"/>",
+                source.getFullName(), target.getFullName(), getType().toString().toLowerCase(),violation);
     }
 
 	public Type getType() {
