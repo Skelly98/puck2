@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<DG>
+	<node type="package" id="0" name="screen"/>
+	<node type="class" id="1" name="BridgeDemo"/>
+	<node type="method" id="2" name="String)"/>
+	<node type="parameter" id="3" name="s"/>
+	<node type="methodbody" id="4" name="body"/>
+	<node type="method" id="5" name="main(String[])"/>
+	<node type="parameter" id="6" name="args"/>
+	<node type="package" id="7" name="lang"/>
+	<node type="methodbody" id="9" name="body"/>
+	<node type="class" id="10" name="WelcomeStar"/>
+	<node type="class" id="11" name="WelcomeCapital"/>
+	<node type="class" id="12" name="InfoCapital"/>
+	<node type="class" id="13" name="InfoStar"/>
+	<node type="method" id="14" name="draw()"/>
+	<node type="method" id="15" name="draw()"/>
+	<node type="method" id="16" name="draw()"/>
+	<node type="method" id="17" name="draw()"/>
+	<node type="class" id="18" name="Screen"/>
+	<node type="method" id="19" name="draw()"/>
+	<node type="methodbody" id="20" name="body"/>
+	<node type="method" id="22" name="printCapital(String)"/>
+	<node type="parameter" id="23" name="s"/>
+	<node type="methodbody" id="24" name="body"/>
+	<node type="methodbody" id="29" name="body"/>
+	<node type="method" id="31" name="printStar(String)"/>
+	<node type="parameter" id="32" name="s"/>
+	<node type="methodbody" id="33" name="body"/>
+	<node type="methodbody" id="34" name="body"/>
+	<node type="method" id="36" name="printCapital(String)"/>
+	<node type="parameter" id="37" name="s"/>
+	<node type="methodbody" id="38" name="body"/>
+	<node type="methodbody" id="39" name="body"/>
+	<node type="method" id="41" name="draw(int, int, int, boolean, float, String)"/>
+	<node type="parameter" id="42" name="num"/>
+	<node type="parameter" id="43" name="truc"/>
+	<node type="parameter" id="44" name="machin"/>
+	<node type="parameter" id="45" name="isWorking"/>
+	<node type="parameter" id="46" name="x"/>
+	<node type="parameter" id="47" name="s"/>
+	<node type="methodbody" id="48" name="body"/>
+	<node type="method" id="49" name="printStar(String)"/>
+	<node type="parameter" id="50" name="s"/>
+	<node type="methodbody" id="51" name="body"/>
+	<edge type="contains" src="2" dest="3" id="0" violation="0"/>
+	<edge type="contains" src="18" dest="19" id="1" violation="0"/>
+	<edge type="contains" src="22" dest="23" id="2" violation="0"/>
+	<edge type="contains" src="2" dest="4" id="4" violation="0"/>
+	<edge type="contains" src="22" dest="24" id="5" violation="0"/>
+	<edge type="contains" src="10" dest="14" id="6" violation="0"/>
+	<edge type="contains" src="13" dest="49" id="7" violation="0"/>
+	<edge type="isa" src="10" dest="18" id="9" violation="0"/>
+	<edge type="contains" src="14" dest="29" id="11" violation="0"/>
+	<edge type="contains" src="10" dest="31" id="12" violation="0"/>
+	<edge type="contains" src="31" dest="32" id="13" violation="0"/>
+	<edge type="contains" src="31" dest="33" id="16" violation="0"/>
+	<edge type="contains" src="11" dest="15" id="17" violation="0"/>
+	<edge type="contains" src="15" dest="20" id="18" violation="0"/>
+	<edge type="isa" src="11" dest="18" id="19" violation="0"/>
+	<edge type="contains" src="11" dest="22" id="21" violation="0"/>
+	<edge type="contains" src="0" dest="1" id="23" violation="0"/>
+	<edge type="contains" src="36" dest="37" id="25" violation="0"/>
+	<edge type="contains" src="36" dest="38" id="27" violation="0"/>
+	<edge type="contains" src="12" dest="16" id="30" violation="0"/>
+	<edge type="isa" src="12" dest="18" id="31" violation="0"/>
+	<edge type="contains" src="0" dest="10" id="32" violation="0"/>
+	<edge type="contains" src="0" dest="11" id="33" violation="0"/>
+	<edge type="contains" src="0" dest="12" id="34" violation="0"/>
+	<edge type="contains" src="0" dest="13" id="35" violation="0"/>
+	<edge type="contains" src="0" dest="18" id="36" violation="0"/>
+	<edge type="contains" src="16" dest="34" id="37" violation="0"/>
+	<edge type="contains" src="12" dest="36" id="38" violation="0"/>
+	<edge type="contains" src="1" dest="2" id="41" violation="0"/>
+	<edge type="contains" src="5" dest="6" id="42" violation="0"/>
+	<edge type="uses" src="9" dest="10" id="43" violation="0"/>
+	<edge type="contains" src="41" dest="42" id="45" violation="0"/>
+	<edge type="contains" src="49" dest="50" id="46" violation="0"/>
+	<edge type="uses" src="9" dest="11" id="47" violation="0"/>
+	<edge type="contains" src="41" dest="43" id="48" violation="0"/>
+	<edge type="contains" src="49" dest="51" id="49" violation="0"/>
+	<edge type="uses" src="9" dest="12" id="50" violation="0"/>
+	<edge type="contains" src="41" dest="44" id="51" violation="0"/>
+	<edge type="contains" src="1" dest="5" id="52" violation="0"/>
+	<edge type="uses" src="9" dest="13" id="53" violation="0"/>
+	<edge type="contains" src="5" dest="9" id="54" violation="0"/>
+	<edge type="contains" src="13" dest="17" id="55" violation="0"/>
+	<edge type="contains" src="41" dest="45" id="56" violation="0"/>
+	<edge type="uses" src="9" dest="14" id="57" violation="0"/>
+	<edge type="contains" src="41" dest="46" id="58" violation="0"/>
+	<edge type="isa" src="13" dest="18" id="59" violation="0"/>
+	<edge type="uses" src="9" dest="15" id="60" violation="0"/>
+	<edge type="contains" src="41" dest="47" id="61" violation="0"/>
+	<edge type="uses" src="9" dest="16" id="62" violation="0"/>
+	<edge type="contains" src="41" dest="48" id="63" violation="0"/>
+	<edge type="uses" src="9" dest="17" id="64" violation="0"/>
+	<edge type="contains" src="17" dest="39" id="68" violation="0"/>
+	<edge type="contains" src="13" dest="41" id="69" violation="0"/>
+</DG>

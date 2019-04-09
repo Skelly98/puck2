@@ -1,5 +1,7 @@
 package graph.readers;
 
+import java.util.ArrayList;
+
 import org.extendj.ast.Access;
 import org.extendj.ast.Block;
 import org.extendj.ast.ConstructorDecl;
@@ -20,9 +22,35 @@ public class ConstructorReader extends BodyDeclReader {
 
 	@Override
 	public Graph read() {
-		String fullName = getHostClassName() + "." + constructorDecl.signature();
-
-		constructorNode = addNode(fullName, Node.Type.Method, constructorDecl);
+		String f = getHostClassName() + "." + constructorDecl.name();
+	     ArrayList <ParameterDeclaration> param_list = new ArrayList<ParameterDeclaration>();
+	     String x = "";
+	     for (ParameterDeclaration p : constructorDecl.getParameterList()) {
+	        param_list.add(p);
+	     }
+		
+	     if(param_list.size()> 0) {
+	        	for (ParameterDeclaration p : param_list) {
+	        		
+	        		
+	        		if( param_list.indexOf(p) == param_list.size() -1) {
+	        			x += p.type();
+	        		}
+	        		else {
+	        			 x += p.type()+", ";
+	        		}
+	        	}
+	      }
+	     
+	     x = x.replaceAll("java.lang.", "");
+	        
+	        
+	        f += "("+x+")";
+	        f= f.replace("<", "(");
+	        f= f.replace(">", ")");
+	     
+	     
+		constructorNode = addNode(f, Node.Type.Method, constructorDecl);
 		addHostClassDependency();
 		if(constructorDecl.hasParameter()) addParametersTypeDependency();
 		if (constructorDecl.getBlock() != null) {

@@ -48,6 +48,8 @@ public class XMLExporter {
         String type = node.getType().toString().toLowerCase();
         Integer id = node.getId();
         String name = extractNodeName(node.getFullName());
+        name = name.replace("<", "(");
+        name = name.replace(">", ")");
         return String.format(formatString, type, id, name);
     }
 

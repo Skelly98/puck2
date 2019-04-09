@@ -1,6 +1,12 @@
 package screen;
 
 public class BridgeDemo {
+	
+	public BridgeDemo(String s) {
+		
+	}
+	
+	
     public static void main(String[] args) { 
         WelcomeStar ws = new WelcomeStar();
         WelcomeCapital wc = new WelcomeCapital();

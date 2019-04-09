@@ -28,7 +28,6 @@ public class MethodReader extends BodyDeclReader {
     @Override
     public Graph read() {
         String f = getHostClassName() + "." + methodDecl.name();
-        String fullName = f.replace("java.lang.", "");      
         ArrayList <ParameterDeclaration> param_list = new ArrayList<ParameterDeclaration>();
         String x = "";
         for (ParameterDeclaration p : methodDecl.getParameterList()) {
@@ -37,6 +36,8 @@ public class MethodReader extends BodyDeclReader {
         
         if(param_list.size()> 0) {
         	for (ParameterDeclaration p : param_list) {
+        		
+        		
         		if( param_list.indexOf(p) == param_list.size() -1) {
         			x += p.type();
         		}
@@ -46,10 +47,16 @@ public class MethodReader extends BodyDeclReader {
         	}
         }
         
+        x = x.replaceAll("java.lang.", "");
         
-        fullName += "("+x+")";
         
-        methodNode = addNode(fullName, Node.Type.Method, methodDecl);
+        f += "("+x+")";
+        f= f.replace("<", "(");
+        f= f.replace(">", ")");
+        
+        System.out.println(f);
+        
+        methodNode = addNode(f, Node.Type.Method, methodDecl);
 
         addHostClassDependency();
         addReturnTypeDependency();
