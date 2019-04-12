@@ -32,17 +32,36 @@ public class ConstructorReader extends BodyDeclReader {
 	     if(param_list.size()> 0) {
 	        	for (ParameterDeclaration p : param_list) {
 	        		
+	        		String t = ""+ p.type();
+	        		String [] arr = t.split(".");
 	        		
-	        		if( param_list.indexOf(p) == param_list.size() -1) {
-	        			x += p.type();
+	        		if (t.compareTo("Unknown") ==0) {
+	        			if( param_list.indexOf(p) == param_list.size() -1) {
+	        				x+= unknownParameter(p);
+		        		}
+		        		else {
+		        			x+= unknownParameter(p) + ",";
+		        		}
+	        		}
+	        		
+	        		else if(arr.length >0) {
+		        		if( param_list.indexOf(p) == param_list.size() -1) {
+		        			x += arr[arr.length-1];
+		        		}
+		        		else {
+		        			 x += arr[arr.length-1] +", ";
+		        		}
 	        		}
 	        		else {
-	        			 x += p.type()+", ";
+	        			if( param_list.indexOf(p) == param_list.size() -1) {
+		        			x += p.type();
+		        		}
+		        		else {
+		        			 x += p.type() +", ";
+		        		}
 	        		}
 	        	}
 	      }
-	     
-	     x = x.replaceAll("java.lang.", "");
 	        
 	        
 	        f += "("+x+")";
@@ -65,6 +84,14 @@ public class ConstructorReader extends BodyDeclReader {
 
 		return getGraph();
 	}
+	
+	
+	private String unknownParameter(ParameterDeclaration p) {
+		String s =  p.prettyPrint();
+		String [] arr = s.split(" ");		
+		return arr[0];		
+	}
+
 	private void addHostClassDependency() {
 		addEdge(getHostTypeName(), constructorNode.getFullName(), Edge.Type.Contains);
 	}

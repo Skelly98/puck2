@@ -53,7 +53,7 @@ public class Puck2Runner {
         loadProgram(projectPath);
         ProgramReader reader = new ProgramReader(program);
         graph = reader.read();
-     //   displayGraph();
+       // displayGraph();
     }
 
     public void outputToFile(String outputFile) throws Exception {
