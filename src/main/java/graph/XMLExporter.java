@@ -21,7 +21,7 @@ public class XMLExporter {
     }
 
     public void add(Map<Integer, Node> nodes, Set<Edge> edges) {
-         this.nodes.putAll(nodes);
+        this.nodes.putAll(nodes);
         this.edges.addAll(edges);
     }
 
@@ -72,4 +72,12 @@ public class XMLExporter {
 
         return "";
     }
+
+	public Map<Integer, Node> getNodes() {
+		return nodes;
+	}
+
+	public Set<Edge> getEdges() {
+		return edges;
+	}
 }

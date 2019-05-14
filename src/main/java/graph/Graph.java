@@ -37,7 +37,6 @@ public class Graph {
             addToIndex(fromIndex, e.getSource(), e);
             addToIndex(toIndex, e.getTarget(), e);
         }
-
         for (Node n: nodes.values()) {
             nameIndex.put(n.getFullName(), n.getId());
         }
@@ -57,7 +56,7 @@ public class Graph {
         return newNode;
     }
 
-    public boolean addEdge(Integer source, Integer target, Edge.Type type) {
+    private boolean addEdge(Integer source, Integer target, Edge.Type type) {
         Edge newEdge = new Edge(source, target, type);
         this.edges.add(newEdge);
         addToIndex(fromIndex, source, newEdge);
