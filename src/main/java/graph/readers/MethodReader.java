@@ -72,8 +72,8 @@ public class MethodReader extends BodyDeclReader {
        
         
         f += "("+x+")";
-        f= f.replace("<", "(");
-        f= f.replace(">", ")");
+        //f= f.replace("<", "(");
+        //f= f.replace(">", ")");
         
         
         methodNode = addNode(f, Node.Type.Method, methodDecl);

@@ -65,8 +65,8 @@ public class ConstructorReader extends BodyDeclReader {
 	        
 	        
 	        f += "("+x+")";
-	        f= f.replace("<", "(");
-	        f= f.replace(">", ")");
+	        //f= f.replace("<", "(");
+	        //f= f.replace(">", ")");
 	     
 	     
 		constructorNode = addNode(f, Node.Type.Method, constructorDecl);

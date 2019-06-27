@@ -48,14 +48,14 @@ public class XMLExporter {
         String type = node.getType().toString().toLowerCase();
         Integer id = node.getId();
         String name = extractNodeName(node.getFullName());
-        name = name.replace("<", "(");
-        name = name.replace(">", ")");
+        name = name.replace("<", "&lt;");
+        name = name.replace(">", "&gt;");
         return String.format(formatString, type, id, name);
     }
 
     private String extractNodeName(String nodeName) {
         String[] nameParts = nodeName.split("\\.");
-
+        //String name = "<![CDATA[" + nameParts[nameParts.length - 1] + "]]>"; //pour echapper les caracteres speciaux, ne fonctionne pas
         return nameParts[nameParts.length - 1];
     }
 

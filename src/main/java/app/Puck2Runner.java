@@ -104,7 +104,7 @@ public class Puck2Runner {
 
         // validate the DOM tree
         try {
-            validator.validate(new DOMSource(document));
+            validator.validate(new DOMSource(document)); //Utilise SAX
         } catch (SAXException e) {
             // instance document is invalid!
         	System.out.println(e.getMessage());
@@ -113,15 +113,15 @@ public class Puck2Runner {
     }
 
     
-    //parse et ajoute tous les fichiers à la liste de compilation 
+    //parse et ajoute tous les fichiers ï¿½ la liste de compilation 
     private void loadProgram(String path) throws IOException {
         File f = new File(path); 
-        if (f.isDirectory()) { //si f est un répertoire
+        if (f.isDirectory()) { //si f est un rï¿½pertoire
             for (File innerFile: f.listFiles()) {
-                loadProgram(innerFile.getAbsolutePath()); //récursivement ? on charge chaque fichier du projet
+                loadProgram(innerFile.getAbsolutePath()); //rï¿½cursivement ? on charge chaque fichier du projet
             }
         } else if (getFileExtension(path).equals("java")) { //si c'est un fichier java
-            program.addSourceFile(path); //parse le fichier et ajoute to compilation unit à la liste de compilation unit
+            program.addSourceFile(path); //parse le fichier et ajoute to compilation unit ï¿½ la liste de compilation unit
         }
     }
 
